@@ -63,7 +63,7 @@ function walk(N::Integer; v::Integer, steps::Integer=1000)
 end
 
 function show_probabilities(ps, name, path)
-    plt = plot(; title=name, xlabel="Number of steps", ylabel="Probability of being at a fixed vertex", framestyle=:box, dpi=300)
+    plt = plot(; title=name, xlabel="Number of steps", ylabel="Probability of being at a fixed vertex", framestyle=:box, dpi=300, size=(1200, 400))
     xs = collect(1:length(ps))
 
     plot!(plt, xs, ps, linecolor=:blue, linewidth=2, legend=false)
@@ -89,3 +89,6 @@ show_probabilities(ps100, L"$K_{100}$", "outputs/k100.png")
 
 ps1000 = walk(1000, v=v, steps=steps)
 show_probabilities(ps1000, L"$K_{1000}$", "outputs/k1000.png")
+
+ps1000 = walk(1000, v=v, steps=1000)
+show_probabilities(ps1000, L"$K_{1000}$", "outputs/k1000_1000.png")
