@@ -139,3 +139,21 @@ find_half(bg; t=3)
 # compare my implementation with the reference implementation for the same target vertex t and number of steps
 verify(bg; t=1, steps=1)
 
+
+
+# construct the graph from lecture notes
+#        3
+#      / |
+# 1 - 2  |
+#      \ |
+#        4 
+bg = BipartiteDoubleCover([(1, 2), (2, 3), (2, 4), (3, 4)])
+
+# run my implementation on target vertex t for steps steps 
+run_and_measure(bg; t=2, steps=1)
+
+# run the algorithm until the target vertex t is visited with probability greater than 0.5
+find_half(bg; t=3)
+
+# compare my implementation with the reference implementation for the same target vertex t and number of steps
+verify(bg; t=2, steps=2)
